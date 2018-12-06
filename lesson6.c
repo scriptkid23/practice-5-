@@ -5,7 +5,9 @@
 
 
 typedef struct{
-  char masv[10];
+  char masv[32];
+  //về cơ bản nếu mã số sv có 7 ký tự thì ta nên cho thêm  ít nhất 10 ô bộ nhớ để tránh lỗi xảy ra
+  // ở đây cho  thêm 32 ô bộ nhớ tránh lỗi xảy ra
   char hoten[32];
   float dtb;
 } Sinhvien;
@@ -18,6 +20,13 @@ void deleteNewline(char prop[]){
       int a = strlen(prop);
       strcpy(&prop[strlen(prop)-1],"");
 }
+/*
+  hàm deleteNewline() này cho phép xóa bỏ ký tự \n trong hàm fgets
+  vì khi sử dụng hàm fgets thì nó sẽ lưu cả ký tự \n vào trước mỗi ký tự ,
+  điều này là không mong muốn với trường hợp ta muốn in dữ liệu ra màn hình
+  các giá trị cùng 1 dòng
+  nên phải sử dụng hàm deleteNewline() để xóa bỏ ký tự xuống dòng hay newline(\n)
+*/
 void nhap_dssv(Lop *lop){
   FILE *fq = fopen("text/SV.inp","r");
   fgets(lop->tenlop,sizeof(lop->tenlop),fq);
@@ -66,6 +75,9 @@ void in_dssv(Lop *lop) {
   for(int i = 0; i <lop->siso;i++){
     printf("%-32s%-32s%-32.1f\n",lop->dssv[i]->masv,lop->dssv[i]->hoten,lop->dssv[i]->dtb);
   }
+}
+void tim_diemtb(Lop *lop,float d){
+
 }
 int main(int argc, char const *argv[]) {
 
