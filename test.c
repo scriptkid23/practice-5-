@@ -5,7 +5,7 @@
 const int MAX = 80;
 
 typedef struct{
-  char masv[7];
+  char masv[10];
   char hoten[32];
   float dtb;
 } Sinhvien;
@@ -32,16 +32,16 @@ int main(int argc, char const *argv[]) {
   fgets(className,sizeof(className),fq);
   fgets(iMember,sizeof(iMember),fq);
   num = atoi(iMember);
-  for(int i = 0 ; i < num; i++){
-    fgets(temp,sizeof(temp),fq);
-    strcpy(sv[i].masv,temp);
-    fgets(temp,sizeof(temp),fq);
-    strcpy(sv[i].hoten,temp);
-    fgets(temp,sizeof(temp),fq);
-    sv[i].dtb = atof(temp);
+for(int i = 0 ; i < num; i++){
 
-
+  fgets(sv[i].masv,sizeof(sv[i].masv),fq);
+  fgets(sv[i].hoten,sizeof(sv[i].hoten),fq);
+  fgets(temp,sizeof(sv[i].hoten),fq);
+  sv[i].dtb  = atof(temp);
   }
-  printf("%3.2f\n",sv[2].dtb);
+
+
+
+    printf("%s\n",sv[0].hoten);
     return 0;
 }
