@@ -46,26 +46,27 @@ void nhap_dssv(Lop *lop){
   }
   fclose(fq);
 }
-void splaceNumber(float a, float b){
+void splaceNumber(float *a, float *b){
   float temp;
-  temp = a;
-  a = b;
-  b =temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
 }
 void splaceString(char a[], char b[]){
-  char temp[100];
-  strcpy(temp,a);
-  strcpy(a,b);
-  strcpy(b,temp);
+
+    char temp[100];
+    strcpy(temp,a);
+    strcpy(a,b);
+    strcpy(b,temp);
+
 }
 void sapxep_dssv(Lop *lop){
-    for(int i = 0; i < lop->siso-1;i++){
+    for(int i = 0; i < (lop->siso)-1;i++){
       for(int j = i+1; j < (lop->siso);j++){
         if(lop->dssv[i]->dtb < lop->dssv[j]->dtb){
-            splaceNumber(lop->dssv[i]->dtb,lop->dssv[j]->dtb);
-            splaceString(lop->dssv[i]->hoten,lop->dssv[j]->hoten);
+            splaceNumber(&lop->dssv[i]->dtb,&lop->dssv[j]->dtb);
             splaceString(lop->dssv[i]->masv,lop->dssv[j]->masv);
-
+            splaceString(lop->dssv[i]->hoten,lop->dssv[j]->hoten);
         }
       }
     }
@@ -77,6 +78,22 @@ void in_dssv(Lop *lop) {
   }
 }
 void tim_diemtb(Lop *lop,float d){
+    FILE * f_print = fopen("text/sv.out","w");
+    int counter = 0;
+    fprintf(f_print,"%-32s%-32s%-32s\n","Ma so sinh vien","Ho ten","Diem trung binh");
+    for(int i = 0; i < lop->siso;i++){
+      if( lop->dssv[i]->dtb > d){
+        printf("%-32s%-32s%-32.1f\n",lop->dssv[i]->masv,lop->dssv[i]->hoten,lop->dssv[i]->dtb);
+        fprintf(f_print,"%-32s%-32s%-32.1f\n",lop->dssv[i]->masv,lop->dssv[i]->hoten,lop->dssv[i]->dtb);
+      }
+      else{
+        counter++;
+      }
+
+    }
+    if(counter == lop->siso){
+      printf("KHONG CO AI THOA MAN YEU CAU\n");
+    }
 
 }
 int main(int argc, char const *argv[]) {
@@ -84,7 +101,10 @@ int main(int argc, char const *argv[]) {
     Lop *class0;
     class0 = (Lop*)malloc(sizeof(Lop));
     nhap_dssv(class0);
+    sapxep_dssv(class0);
     in_dssv(class0);
+    tim_diemtb(class0,2.0);
+
 
 
     return 0;
