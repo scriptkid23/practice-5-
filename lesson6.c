@@ -8,6 +8,7 @@ typedef struct{
   char masv[32];
   //về cơ bản nếu mã số sv có 7 ký tự thì ta nên cho thêm  ít nhất 10 ô bộ nhớ để tránh lỗi xảy ra
   // ở đây cho  thêm 32 ô bộ nhớ tránh lỗi xảy ra
+  // vì khi mã số sv có 7 ký tự nhưng thật ra là 8 vì sẽ chứa thêm 1 ký tự '\0' nên phải để ít nhất masv[8] 
   char hoten[32];
   float dtb;
 } Sinhvien;
