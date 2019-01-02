@@ -5,3 +5,4 @@ ao khoac 5 6 7 8 9 9.9
 quan dui 3 3 3 5 7 8
 do choi tre con sieu nhan 6 7 8 8.8 8 9
 quan dui tre so sinh 7.7 8 9 5 9 6
+do choi sieu nhan nnhen 1 2 3 5 6 7

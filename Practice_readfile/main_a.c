@@ -6,6 +6,7 @@ typedef struct{
     char name[256];
     float prize[100];
 } ELEMENT;
+//đếm số khoảng cách có trong 1 chuỗi
 int  counterSpace(char prop[]){
     int counter = 0;
     for(int i = 0; i < strlen(prop);i++){
@@ -13,7 +14,8 @@ int  counterSpace(char prop[]){
     }
     return counter;
 }
-int convertText(char prop[]){
+//xác định vị trí khoảng cách giữa tên sản phẩm và các giá của sản phẩm
+int locationSpaceEX(char prop[]){
     int locationSpace = counterSpace(prop) - 5;
     int counter = 0;
     int location;
@@ -29,12 +31,18 @@ int convertText(char prop[]){
     }
     return location;
 }
+//sau khi xác định đc khoảng cách ta sẽ thay thế khoảng cách bằng ký tự '\n'
 void convert(char prop[]){
-    prop[convertText(prop)] = '\n';
+    prop[locationSpaceEX(prop)] = '\n';
 }
+// hàm deleteNewline để xử lý những tình huống khác mà đề bài ra nhưng ở đây chúng ta 
+// sẽ không sử dụng hàm này
 void deleteNewline(char prop[]){
     prop[strlen(prop)-1] = '\0';
 }
+//sau khi đã xây dựng các hàm , xây dựng hàm convertText_ để tạo ra 1 file mới
+// dễ xử lý hơn file cũ mà đề bài ra 
+
 void convertText_(int prop,int *number){
     FILE *fr_hello = fopen("texts/hello.txt","r");
     FILE *fr_convert = fopen("texts/convert.txt","w");
@@ -56,7 +64,7 @@ void convertText_(int prop,int *number){
 int main(){
     int number;
     ELEMENT sp[100];
-    convertText_(6,&number);
+    convertText_(7,&number);
     char temp[10];
     FILE *fop = fopen("texts/convert.txt","r");
     printf("%d\n",number);
