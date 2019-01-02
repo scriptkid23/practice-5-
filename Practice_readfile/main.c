@@ -22,14 +22,14 @@ int main(){
         switch (c)
         {
         case 'q': LANG.Q++ ;break;case 'w': LANG.W++;break;case 'e': LANG.E++;break;
-        case 'r': LANG.R++;break;case 't': LANG.T++;break;case 'y': LANG.Y++;break;
-        case 'u': LANG.U++;break;case 'i': LANG.I++;break;case 'o': LANG.O++;break;
-        case 'a': LANG.A++;break;case 's': LANG.S++;break;case 'd': LANG.D++;break;
-        case 'f': LANG.F++;break;case 'g': LANG.G++;break;case 'h': LANG.H++;break;
-        case 'j': LANG.J++;break;case 'k': LANG.K++;break;case 'l': LANG.L++;break;
-        case 'z': LANG.Z++;break;case 'x': LANG.X++;break;case 'c': LANG.C++;break;
-        case 'v': LANG.V++;break;case 'b': LANG.B++;break;case 'n': LANG.N++;break;
-        case 'm': LANG.M++;break;
+        case 'r': LANG.R++ ;break;case 't': LANG.T++;break;case 'y': LANG.Y++;break;
+        case 'u': LANG.U++ ;break;case 'i': LANG.I++;break;case 'o': LANG.O++;break;
+        case 'a': LANG.A++ ;break;case 's': LANG.S++;break;case 'd': LANG.D++;break;
+        case 'f': LANG.F++ ;break;case 'g': LANG.G++;break;case 'h': LANG.H++;break;
+        case 'j': LANG.J++ ;break;case 'k': LANG.K++;break;case 'l': LANG.L++;break;
+        case 'z': LANG.Z++ ;break;case 'x': LANG.X++;break;case 'c': LANG.C++;break;
+        case 'v': LANG.V++ ;break;case 'b': LANG.B++;break;case 'n': LANG.N++;break;
+        case 'm': LANG.M++ ;break;
         default:
             break;
         }
